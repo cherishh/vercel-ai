@@ -8,6 +8,7 @@ const agent: any = isProxy ? new HttpsProxyAgent('http://127.0.0.1:1087') : null
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+  httpAgent: agent,
 });
 
 export async function POST(req: Request) {
@@ -19,7 +20,7 @@ export async function POST(req: Request) {
     stream: true,
     messages,
   }, {
-    httpAgent: agent,
+    // httpAgent: agent,
   });
  
   // Convert the response into a friendly text-stream
