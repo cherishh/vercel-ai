@@ -4,14 +4,14 @@
  */
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 
-export function WeatherCard() {
+export function WeatherCard({ weatherInfo }) {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader className="flex flex-col items-center space-y-1.5">
         <div className="flex items-center space-x-2">
           <div className="grid gap-0.5">
-            <CardTitle>Barcelona</CardTitle>
-            <CardDescription>Mostly sunny</CardDescription>
+            <CardTitle>{weatherInfo.city}</CardTitle>
+            <CardDescription>{weatherInfo.weather}</CardDescription>
           </div>
           <img
             alt="Weather icon"
@@ -35,13 +35,13 @@ export function WeatherCard() {
       </CardHeader>
       <CardContent className="flex flex-col items-center space-y-1.5">
         <div className="grid gap-0.5">
-          <p className="text-2xl font-semibold tracking-tighter">23°</p>
-          <p className="text-sm font-medium tracking-tight text-gray-500 dark:text-gray-400">Feels like 25°</p>
+          <p className="text-2xl font-semibold tracking-tighter">{weatherInfo.temperature}°</p>
+          <p className="text-sm font-medium tracking-tight text-gray-500 dark:text-gray-400">体感温度 {weatherInfo.temperature}°</p>
         </div>
         <div className="grid gap-1.5 text-sm text-center">
           <li>0% Precipitation</li>
-          <li>Humidity 40%</li>
-          <li>Wind 10 km/h</li>
+          <li>Humidity {weatherInfo.humidity}%</li>
+          <li>Wind {weatherInfo.windpower} km/h</li>
           <li>Sunrise 06:33</li>
           <li>Sunset 19:52</li>
         </div>

@@ -10,8 +10,9 @@ export default function Page() {
   const { submitUserMessage } = useActions<typeof AI>();
  
   return (
-    <div className=' h-screen mx-80 p-4'>
-      {
+    <div className='h-4/5 mx-80 p-4 '>
+      <div className='w-full'>
+        {
         // View messages in UI state
         messages.map((message) => (
           <div key={message.id}>
@@ -19,6 +20,8 @@ export default function Page() {
           </div>
         ))
       }
+      </div>
+      
  
       <form onSubmit={async (e) => {
         e.preventDefault();
